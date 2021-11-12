@@ -26,7 +26,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    vector<QWidget> pxlVector;
+    vector<Pixel*> pxlVector;
     QGridLayout gridLayout;
     int pxlSize;
     int curPxlR;

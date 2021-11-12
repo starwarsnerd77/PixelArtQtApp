@@ -13,14 +13,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     pxlSize = 20;
 
+    Pixel* temp;
 
-     //gridLayout = QGridLayout();
     for(int i = 0; i <windowHeight*windowWidth; i++){
-        Pixel temp = Pixel();
-        QWidget* bp = dynamic_cast<QWidget*>(&temp);
+        temp = new Pixel();
+//        QWidget* bp = dynamic_cast<QWidget*>(&temp);
         pxlVector.push_back(temp);
 
-        gridLayout.addWidget(bp);
+//        gridLayout.addWidget(temp);
+//        setCentralWidget(gridLayout);
     }
 
 
@@ -30,4 +31,3 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-

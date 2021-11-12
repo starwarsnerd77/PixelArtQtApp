@@ -8,21 +8,27 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     // Create Layout
+    QWidget* mainWidget = new QWidget(this);
     windowWidth = this->window()->size().width();
     windowHeight = this->window()->size().height();
+
 
     pxlSize = 20;
 
     Pixel* temp;
 
-    for(int i = 0; i <windowHeight*windowWidth; i++){
+    for(int i = 0; i < 200; i++){
         temp = new Pixel();
-//        QWidget* bp = dynamic_cast<QWidget*>(&temp);
         pxlVector.push_back(temp);
 
-//        gridLayout.addWidget(temp);
-//        setCentralWidget(gridLayout);
+        gridLayout->addWidget(temp);
+
+
     }
+
+    mainWidget->setLayout(gridLayout);
+    setCentralWidget(mainWidget);
+
 
 
 }

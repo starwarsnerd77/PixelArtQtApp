@@ -17,5 +17,11 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    int pxlSize;
+    int curPxlR;
+    int curPxlG;
+    int curPxlB;
+    int windowHeight;
+    int windowWidth;
 };
 #endif // MAINWINDOW_H

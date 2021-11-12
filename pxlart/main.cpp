@@ -8,7 +8,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QGroupBox>
-
+#include <QFrame>
 #include <QTextEdit>
 
 int main(int argc, char *argv[])
@@ -19,31 +19,40 @@ int main(int argc, char *argv[])
     QWidget *widget = new QWidget(&window);
     QGridLayout *layout = new QGridLayout(widget);
 
-    window.setCentralWidget(widget);
     widget->setLayout(layout);
+    window.setCentralWidget(widget);
 
 //    int windowWidth = this->window()->size().width();
 //    int windowHeight = this->window()->size().height();
 
 
-    int pxlSize = 20;
+    //int pxlSize = 20;
 
     Pixel* temp;
+    QFrame* frame;
     for(int row = 0; row < 100; row++){
         for(int col = 0; col < 100; col++) {
-            QPalette pal = QPalette();
-            QColor qc = QColor(0,0,0);
-//            pal.setColor(QPalette::Window, qc);
-            temp = new Pixel();
-//            temp->setPalette(pal);
-            temp->setStyleSheet("background-color: black");
-            layout->addWidget(temp, row, col);
+            //temp = new Pixel();
+
+	    //frame = new QFrame(temp);
+
+            //layout->addWidget(frame , row, col);
+
+	    QGroupBox *box = new QGroupBox("", widget);
+
+	    box->setStyleSheet("");
+	    box->setStyleSheet("background-color: rgb(0,0,255)");
+
+	    layout->addWidget(box, row, col);
         }
 
     }
+    //layout->addWidget(new QPushButton("Validate", widget), 1, 0);
+    //layout->addWidget(new QPushButton("Reset", widget), 1, 1);
+    //layout->addWidget(new QPushButton("Cancel", widget), 1, 2);
 
-//    QGroupBox *box = new QGroupBox("", widget);
-//    layout->addWidget(box, 0, 0);
+    //QGroupBox *box = new QGroupBox("", widget);
+    //layout->addWidget(box, 0, 0);
 
 //    QVBoxLayout *boxLayout = new QVBoxLayout(box);
 
@@ -70,9 +79,6 @@ int main(int argc, char *argv[])
 
 
 
-//    layout->addWidget(new QPushButton("Validate", widget), 1, 0);
-//    layout->addWidget(new QPushButton("Reset", widget), 1, 1);
-//    layout->addWidget(new QPushButton("Cancel", widget), 1, 2);
 
 
     window.show();

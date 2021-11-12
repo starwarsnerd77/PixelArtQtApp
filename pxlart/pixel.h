@@ -3,10 +3,10 @@
 
 #include <QWidget>
 
-class pixel : public QWidget {
+class Pixel : public QWidget {
     Q_OBJECT
 	public:
-	    explicit pixel(QWidget *parent = nullptr);
+        explicit Pixel(QWidget *parent = nullptr);
 	
 	    int getRed( ) const;
 	    int getGreen( ) const;

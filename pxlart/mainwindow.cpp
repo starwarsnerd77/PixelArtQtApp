@@ -1,7 +1,5 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include <QGridLayout>
-#include <QApplication>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -10,10 +8,22 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     // Create Layout
-//    QRect rec = QApplication::desktop()->screenGeometry();
-    QGridLayout gridLayout = QGridLayout();
+    windowWidth = this->window()->size().width();
+    windowHeight = this->window()->size().height();
 
-//    for(int i = 0; i < )
+    pxlSize = 20;
+
+
+     //gridLayout = QGridLayout();
+    for(int i = 0; i <windowHeight*windowWidth; i++){
+        Pixel temp = Pixel();
+        QWidget* bp = dynamic_cast<QWidget*>(&temp);
+        pxlVector.push_back(temp);
+
+        gridLayout.addWidget(bp);
+    }
+
+
 }
 
 MainWindow::~MainWindow()

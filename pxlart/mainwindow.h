@@ -1,7 +1,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "pixel.h"
+#include <vector>
+
 #include <QMainWindow>
+
+#include "ui_mainwindow.h"
+#include <QGridLayout>
+#include <QApplication>
+
+using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,11 +26,14 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    vector<QWidget> pxlVector;
+    QGridLayout gridLayout;
     int pxlSize;
     int curPxlR;
     int curPxlG;
     int curPxlB;
     int windowHeight;
     int windowWidth;
+
 };
 #endif // MAINWINDOW_H

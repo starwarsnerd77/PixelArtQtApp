@@ -2,11 +2,13 @@
 #define PIXEL_H
 
 #include <QGroupBox>
+#include <QColorDialog>
 
 class Pixel : public QGroupBox {
     Q_OBJECT
 	public:
         explicit Pixel(QGroupBox *parent = nullptr);
+        Pixel(QColorDialog *colorPicker);
 	
 	    int getRed( ) const;
 	    int getGreen( ) const;
@@ -27,6 +29,7 @@ class Pixel : public QGroupBox {
 	    int pxlGreen;
 	    int pxlBlue;
 	    int pxlSize;
+        QColorDialog* colorPicker;
 
 	signals:
 

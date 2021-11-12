@@ -11,6 +11,7 @@
 #include <QFrame>
 #include <QTextEdit>
 #include <QColorDialog>
+#include <QToolBar>
 
 int main(int argc, char *argv[])
 {
@@ -18,9 +19,20 @@ int main(int argc, char *argv[])
 
     QMainWindow window;
     QWidget *widget = new QWidget(&window);
-    QGridLayout *layout = new QGridLayout(widget);
+    QVBoxLayout *vertical = new QVBoxLayout(widget);
+    QGridLayout *layout = new QGridLayout();
+    QColorDialog* colorPicker = new QColorDialog(&window);
+    QToolBar* toolBar = new QToolBar(widget);
+    colorPicker->setWindowFlags(Qt::Widget);
+    colorPicker->setOptions(QColorDialog::DontUseNativeDialog | QColorDialog::NoButtons);
 
-    widget->setLayout(layout);
+    vertical->addWidget(toolBar);
+    vertical->addLayout(layout);
+    widget->setLayout(vertical);
+
+    toolBar->addAction("File");
+
+
     window.setCentralWidget(widget);
 
     int ROW = 10;
@@ -29,19 +41,17 @@ int main(int argc, char *argv[])
     Pixel* temp;
     for(int row = 0; row < ROW; row++){
         for(int col = 0; col < COL; col++) {
-            temp = new Pixel();
+            temp = new Pixel(colorPicker);
 
             temp->setStyleSheet("");
-            temp->setStyleSheet("background-color: rgb(0,0,255)");
+            temp->setStyleSheet("background-color: rgb(255,255,255)");
 
             layout->addWidget(temp, row, col);
         }
 
     }
-    QColorDialog* colorPicker = new QColorDialog();
-    layout->addWidget(colorPicker);
-
-
+//    widget->setStyleSheet("margin-top:10px");
+    layout->addWidget(colorPicker,0,COL+1,ROW,1);
 
     window.show();
 

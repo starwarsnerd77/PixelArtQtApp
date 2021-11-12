@@ -1,12 +1,12 @@
 #ifndef PIXEL_H
 #define PIXEL_H
 
-#include <QWidget>
+#include <QGroupBox>
 
-class Pixel : public QWidget {
+class Pixel : public QGroupBox {
     Q_OBJECT
 	public:
-        explicit Pixel(QWidget *parent = nullptr);
+        explicit Pixel(QGroupBox *parent = nullptr);
 	
 	    int getRed( ) const;
 	    int getGreen( ) const;
@@ -18,6 +18,8 @@ class Pixel : public QWidget {
 	    void setGreen( const int& green );
 	    void setBlue( const int& blue );
 	    void setSize( const int& green );
+
+        void mousePressEvent(QMouseEvent *event);
 	    
 
 	protected:

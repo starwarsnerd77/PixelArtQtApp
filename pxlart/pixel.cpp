@@ -1,6 +1,6 @@
 #include "pixel.h"
 
-Pixel::Pixel(QWidget *parent) : QWidget(parent), pxlRed(0), pxlGreen(0), pxlBlue(0), pxlSize(20){
+Pixel::Pixel(QGroupBox *parent) : QGroupBox(parent), pxlRed(0), pxlGreen(0), pxlBlue(0), pxlSize(20){
 
 //    this->setPalette(pal);
 //    this->show();
@@ -50,4 +50,11 @@ void Pixel::setSize( const int& size ){
 		pxlSize = size;
         this->resize(pxlSize, pxlSize);
 	}
+}
+
+
+void Pixel::mousePressEvent(QMouseEvent *event) {
+    this->setStyleSheet("");
+    this->setStyleSheet("background-color:rgb(255,0,0)");
+    this->show();
 }

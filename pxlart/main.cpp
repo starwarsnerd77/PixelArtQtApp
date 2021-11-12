@@ -30,20 +30,21 @@ int main(int argc, char *argv[])
 
     Pixel* temp;
     QFrame* frame;
-    for(int row = 0; row < 100; row++){
-        for(int col = 0; col < 100; col++) {
+    for(int row = 0; row < 10; row++){
+        for(int col = 0; col < 10; col++) {
             //temp = new Pixel();
 
 	    //frame = new QFrame(temp);
 
             //layout->addWidget(frame , row, col);
 
-	    QGroupBox *box = new QGroupBox("", widget);
+//	    QGroupBox *box = new QGroupBox("", widget);
+        temp = new Pixel();
 
-	    box->setStyleSheet("");
-	    box->setStyleSheet("background-color: rgb(0,0,255)");
+        temp->setStyleSheet("");
+        temp->setStyleSheet("background-color: rgb(0,0,255)");
 
-	    layout->addWidget(box, row, col);
+        layout->addWidget(temp, row, col);
         }
 
     }

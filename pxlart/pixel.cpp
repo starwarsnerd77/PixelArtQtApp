@@ -4,12 +4,12 @@ Pixel::Pixel(QGroupBox *parent) : QGroupBox(parent), pxlRed(0), pxlGreen(0), pxl
 
 //    this->setPalette(pal);
 //    this->show();
-    this->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
 
 }
 
 Pixel::Pixel(QColorDialog* cp) {
     colorPicker = cp;
+    this->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
 }
 
 int Pixel::getRed() const{

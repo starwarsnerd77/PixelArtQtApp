@@ -22,37 +22,57 @@ int main(int argc, char *argv[])
     window.setCentralWidget(widget);
     widget->setLayout(layout);
 
-    QGroupBox *box = new QGroupBox("", widget);
-    layout->addWidget(box, 0, 0);
-
-    QVBoxLayout *boxLayout = new QVBoxLayout(box);
-
-    QWidget* nameWidget = new QWidget(box);
-    QWidget* ageWidget = new QWidget(box);
-    QWidget* addressWidget = new QWidget(box);
-
-    boxLayout->addWidget(nameWidget);
-    boxLayout->addWidget(ageWidget);
-    boxLayout->addWidget(addressWidget);
-
-    QHBoxLayout *nameLayout = new QHBoxLayout(nameWidget);
-    nameLayout->addWidget(new QLabel("Name:"));
-    nameLayout->addWidget(new QLineEdit(nameWidget));
+//    int windowWidth = this->window()->size().width();
+//    int windowHeight = this->window()->size().height();
 
 
-    QHBoxLayout *ageLayout = new QHBoxLayout(ageWidget);
-    ageLayout->addWidget(new QLabel("Age:"));
-    ageLayout->addWidget(new QLineEdit(ageWidget));
+    int pxlSize = 20;
 
-    QHBoxLayout *addressLayout = new QHBoxLayout(addressWidget);
-    addressLayout->addWidget(new QLabel("Address:"));
-    addressLayout->addWidget(new QLineEdit(addressWidget));
+    Pixel* temp;
+    for(int row = 0; row < 100; row++){
+        for(int col = 0; col < 100; col++) {
+            QPalette pal = QPalette();
+            QColor qc = QColor(0,0,0);
+//            pal.setColor(QPalette::Window, qc);
+            temp = new Pixel();
+//            temp->setPalette(pal);
+            temp->setStyleSheet("background-color: black");
+            layout->addWidget(temp, row, col);
+        }
+
+    }
+
+//    QGroupBox *box = new QGroupBox("", widget);
+//    layout->addWidget(box, 0, 0);
+
+//    QVBoxLayout *boxLayout = new QVBoxLayout(box);
+
+//    QWidget* nameWidget = new QWidget(box);
+//    QWidget* ageWidget = new QWidget(box);
+//    QWidget* addressWidget = new QWidget(box);
+
+//    boxLayout->addWidget(nameWidget);
+//    boxLayout->addWidget(ageWidget);
+//    boxLayout->addWidget(addressWidget);
+
+//    QHBoxLayout *nameLayout = new QHBoxLayout(nameWidget);
+//    nameLayout->addWidget(new QLabel("Name:"));
+//    nameLayout->addWidget(new QLineEdit(nameWidget));
+
+
+//    QHBoxLayout *ageLayout = new QHBoxLayout(ageWidget);
+//    ageLayout->addWidget(new QLabel("Age:"));
+//    ageLayout->addWidget(new QLineEdit(ageWidget));
+
+//    QHBoxLayout *addressLayout = new QHBoxLayout(addressWidget);
+//    addressLayout->addWidget(new QLabel("Address:"));
+//    addressLayout->addWidget(new QLineEdit(addressWidget));
 
 
 
-    layout->addWidget(new QPushButton("Validate", widget), 1, 0);
-    layout->addWidget(new QPushButton("Reset", widget), 1, 1);
-    layout->addWidget(new QPushButton("Cancel", widget), 1, 2);
+//    layout->addWidget(new QPushButton("Validate", widget), 1, 0);
+//    layout->addWidget(new QPushButton("Reset", widget), 1, 1);
+//    layout->addWidget(new QPushButton("Cancel", widget), 1, 2);
 
 
     window.show();

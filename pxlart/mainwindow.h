@@ -27,7 +27,7 @@ public:
 private:
     Ui::MainWindow *ui;
     vector<Pixel*> pxlVector;
-    QGridLayout* gridLayout;
+//    QGridLayout* gridLayout;
     int pxlSize;
     int curPxlR;
     int curPxlG;

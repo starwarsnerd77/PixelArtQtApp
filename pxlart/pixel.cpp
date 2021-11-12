@@ -63,7 +63,7 @@ void Pixel::setSize( const int& size ){
 void Pixel::mousePressEvent(QMouseEvent *event) {
     this->setStyleSheet("");
     QPalette pal = QPalette();
-    pal.setColor(QPalette::Window, colorPicker->selectedColor());
+    pal.setColor(QPalette::Window, colorPicker->currentColor());
     this->setAutoFillBackground(true);
     this->setPalette(pal);
 //    this->setStyleSheet("background-color:rgb(255,0,0)");

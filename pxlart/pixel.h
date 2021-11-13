@@ -15,6 +15,7 @@ class Pixel : public QGroupBox {
 	    int getBlue( ) const;
 	    int getSize( ) const;
 
+	    std::string getRGB( ) const;
 
 	    void setRed( const int& red );
 	    void setGreen( const int& green );

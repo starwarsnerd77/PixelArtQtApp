@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
     layout->setSpacing(0);
     layout->setVerticalSpacing(0);
 
+    window.setLayout(layout);
+
 
     widget->setLayout(layout);
 
@@ -45,19 +47,8 @@ int main(int argc, char *argv[])
     int ROW = window.window()->size().height()/20;
     int COL = window.window()->size().width()/20;
 
-    Pixel* temp;
-    for(int row = 0; row < ROW; row++){
-        for(int col = 0; col < COL; col++) {
-            temp = new Pixel(colorPicker);
 
-            temp->setStyleSheet("");
-            temp->setStyleSheet("background-color: rgb(255,255,255)");
-
-            layout->addWidget(temp, row, col);
-	    window.pushBack(temp);
-        }
-
-    }
+    window.drawBoxes(colorPicker, ROW,  COL );
 
 //    widget->setStyleSheet("margin-top:10px");
     layout->addWidget(colorPicker,0,COL+1,ROW,1);

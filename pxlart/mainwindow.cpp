@@ -1,4 +1,6 @@
 #include "mainwindow.h"
+#include <QColorDialog>
+#include <QColor>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -17,3 +19,15 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_actioncolor2_triggered()
+{
+
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+
+}
+

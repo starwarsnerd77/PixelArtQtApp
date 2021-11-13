@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
-
+#include <iostream>
 #include <QMainWindow>
 #include <QWidget>
 #include <QVBoxLayout>
@@ -12,6 +12,7 @@
 #include <QTextEdit>
 #include <QColorDialog>
 #include <QToolBar>
+#include <QWidgetAction>
 
 int main(int argc, char *argv[])
 {
@@ -19,18 +20,23 @@ int main(int argc, char *argv[])
 
     QMainWindow window;
     QWidget *widget = new QWidget(&window);
+
     QVBoxLayout *vertical = new QVBoxLayout(widget);
     QGridLayout *layout = new QGridLayout();
     QColorDialog* colorPicker = new QColorDialog(&window);
     QToolBar* toolBar = new QToolBar(widget);
     colorPicker->setWindowFlags(Qt::Widget);
-    colorPicker->setOptions(QColorDialog::DontUseNativeDialog | QColorDialog::NoButtons);
+    colorPicker->setOptions(QColorDialog::NoButtons);
 
     vertical->addWidget(toolBar);
     vertical->addLayout(layout);
     widget->setLayout(vertical);
 
-    toolBar->addAction("File");
+
+
+    toolBar->addAction("Save");
+    toolBar->addAction("Save As");
+
 
 
     window.setCentralWidget(widget);

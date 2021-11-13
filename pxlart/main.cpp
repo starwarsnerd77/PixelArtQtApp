@@ -42,8 +42,8 @@ int main(int argc, char *argv[])
 
     window.setCentralWidget(widget);
 
-    int ROW = 25;
-    int COL = 25;
+    int ROW = window.window()->size().height()/20;
+    int COL = window.window()->size().width()/20;
 
     Pixel* temp;
     for(int row = 0; row < ROW; row++){

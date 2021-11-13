@@ -12,6 +12,7 @@ MainWindow::MainWindow(QColorDialog* cp, QWidget *parent)
 {
     ui->setupUi(this);
     colorPicker = cp;
+    pxlSize = 20;
     // Create Layout
 
 
@@ -37,7 +38,10 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_actionSave_triggered()
 {
-    PxlFile newFile = PxlFile();
+    PxlFile newFile = PxlFile(pxlVector);
+    newFile.setFileHeight(this->window()->size().height());
+    newFile.setFileWidth(this->window()->size().width());
+    newFile.setPxlSize(pxlSize);
     newFile.writeToFile();
 
 }

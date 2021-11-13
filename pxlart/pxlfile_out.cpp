@@ -9,8 +9,8 @@ PxlFile::PxlFile(vector<Pixel*> pxlv) {
 
 bool PxlFile::writeToFile() {
 
-	QString filters("Music files (*.mp3);;Text files (*.txt);;All files (*.*)");
-    QString defaultFilter("Text files (*.txt)");
+    QString filters("Pixel files (*.pxl);;Music files (*.mp3);;Text files (*.txt);;All files (*.*)");
+    QString defaultFilter("Pixel files (*.pxl)");
 
     /* Static method approach */
     QString file = QFileDialog::getSaveFileName(0, "Save file", QDir::currentPath(),

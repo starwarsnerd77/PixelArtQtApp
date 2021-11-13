@@ -43,7 +43,7 @@ void PxlFile::setPxlSize(int size) {
 }
 
 void PxlFile::readFromFile() {
-    QString filters("Music files (*.mp3);;Text files (*.txt);;All files (*.*)");
+    QString filters("Pixel files (*.pxl);;Music files (*.mp3);;Text files (*.txt);;All files (*.*)");
     QString defaultFilter("Pixel files (*.pxl)");
 
     QString file = QFileDialog::getOpenFileName(0, "Save file", QDir::currentPath(), filters, &defaultFilter);

@@ -19,7 +19,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QColorDialog* colorPicker = new QColorDialog(nullptr);
-
+    colorPicker->setWindowFlags(Qt::Widget);
+    colorPicker->setOptions(QColorDialog::NoButtons);
 
     MainWindow window(colorPicker);
     //w.show();
@@ -30,8 +31,7 @@ int main(int argc, char *argv[])
 
     QGridLayout *layout = new QGridLayout();
 
-    colorPicker->setWindowFlags(Qt::Widget);
-    colorPicker->setOptions(QColorDialog::NoButtons);
+
 
 
     widget->setLayout(layout);

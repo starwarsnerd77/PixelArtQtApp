@@ -45,6 +45,8 @@ private slots:
 
     void on_actionReset_triggered();
 
+    void on_actionFill_from_current_color_triggered();
+
 private:
     Ui::MainWindow *ui;
     vector<Pixel*> pxlVector;

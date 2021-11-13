@@ -3,6 +3,7 @@
 #include <sstream>
 #include <QFileDialog>
 #include <QColor>
+#include <iostream>
 
 PxlFile::PxlFile()
 {
@@ -62,27 +63,30 @@ vector<Pixel*> PxlFile::readFromFile() {
         pxlSize = stoi(line);
 
         Pixel* temp;
+        int counter;
 
         while(line != "") {
             getline(inFile, line, ' ');
 
-            temp = new Pixel();
-            stringstream ss(line);
+//            temp = new Pixel();
+//            stringstream ss(line);
 
-            getline(ss,c,',');
-            temp->setRed(stoi(c));
-            getline(ss,c,',');
-            temp->setGreen(stoi(c));
-            getline(ss,c,',');
-            temp->setBlue(stoi(c));
+//            getline(ss,c,',');
+//            temp->setRed(stoi(c));
+//            getline(ss,c,',');
+//            temp->setGreen(stoi(c));
+//            getline(ss,c,',');
+//            temp->setBlue(stoi(c));
 
-            QPalette pal = QPalette();
-            pal.setColor(QPalette::Window, QColor::fromRgb(temp->getRed(), temp->getGreen(), temp->getBlue()));
-            temp->setPalette(pal);
-            temp->show();
+//            QPalette pal = QPalette();
+//            pal.setColor(QPalette::Window, QColor::fromRgb(temp->getRed(), temp->getGreen(), temp->getBlue()));
+//            temp->setPalette(pal);
+//            temp->show();
 
-            pxlVector.push_back(temp);
+//            pxlVector.push_back(temp);
+            counter++;
         }
+        std::cout << counter;
         inFile.close();
         return pxlVector;
     }

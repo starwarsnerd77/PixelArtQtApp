@@ -85,8 +85,7 @@ void MainWindow::drawBoxes(QColorDialog *colorPicker,int ROW, int COL ){
             temp->setStyleSheet("background-color: rgb(255,255,255)");
 
             layout->addWidget(temp, row, col);
-
-        //this->window()->layout()->pushBack(temp);
+            this->pushBack(temp);
         }
 
     }

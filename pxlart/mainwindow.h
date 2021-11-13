@@ -21,7 +21,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QColorDialog* cp, QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
@@ -39,6 +39,7 @@ private:
     int curPxlB;
     int windowHeight;
     int windowWidth;
+    QColorDialog* colorPicker;
 
 };
 #endif // MAINWINDOW_H

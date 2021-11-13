@@ -13,29 +13,28 @@
 #include <QColorDialog>
 #include <QToolBar>
 #include <QWidgetAction>
+#include "add_action.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    QColorDialog* colorPicker = new QColorDialog(nullptr);
 
-    QMainWindow window;
+
+    MainWindow window(colorPicker);
+    //w.show();
+
+    //QMainWindow window;
     QWidget *widget = new QWidget(&window);
 
-    QVBoxLayout *vertical = new QVBoxLayout(widget);
+
     QGridLayout *layout = new QGridLayout();
-    QColorDialog* colorPicker = new QColorDialog(&window);
-    QToolBar* toolBar = new QToolBar(widget);
+
     colorPicker->setWindowFlags(Qt::Widget);
     colorPicker->setOptions(QColorDialog::NoButtons);
 
-    vertical->addWidget(toolBar);
-    vertical->addLayout(layout);
-    widget->setLayout(vertical);
 
-
-
-    toolBar->addAction("Save");
-    toolBar->addAction("Save As");
+    widget->setLayout(layout);
 
 
 

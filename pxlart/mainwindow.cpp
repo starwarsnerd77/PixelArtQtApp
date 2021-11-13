@@ -3,12 +3,12 @@
 #include <QColor>
 
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QColorDialog* cp, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    colorPicker = cp;
     // Create Layout
 
 
@@ -22,7 +22,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actioncolor2_triggered()
 {
-
+    colorPicker->open();
 }
 
 

@@ -70,7 +70,7 @@ void Pixel::mousePressEvent(QMouseEvent *event) {
     this->setBlue(colorPicker->currentColor().blue());
     this->setAutoFillBackground(true);
     this->setPalette(pal);
-    this->show();
+//    this->show();
 }
 
 std::string Pixel::getRGB( ) const{

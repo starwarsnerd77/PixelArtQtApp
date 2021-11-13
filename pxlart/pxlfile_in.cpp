@@ -67,37 +67,8 @@ void PxlFile::readFromFile() {
         cout << numOfPxls << endl;
         QPalette pal = QPalette();
 
-//        Pixel* temp;
-//        int counter;
-
-//        getline(inFile, line, ' ');
-//        while(line != "EOF") {
-
-//            cout << line << endl;
-
-//            temp = new Pixel();
-//            stringstream ss(line);
-
-//            getline(ss,c,',');
-//            temp->setRed(stoi(c));
-//            getline(ss,c,',');
-//            temp->setGreen(stoi(c));
-//            getline(ss,c,',');
-//            temp->setBlue(stoi(c));
-
-//            QPalette pal = QPalette();
-//            pal.setColor(QPalette::Window, QColor::fromRgb(temp->getRed(), temp->getGreen(), temp->getBlue()));
-//            temp->setPalette(pal);
-//            temp->show();
-
-//            pxlVector->push_back(temp);
-//            getline(inFile, line, ' ');
-//            counter++;
-//        }
-
         for(int i = 0; i < numOfPxls; i++) {
             getline(inFile, line, ' ');
-//            cout << line << endl;
             stringstream ss(line);
             getline(ss,c,',');
             pxlVector.at(i)->setRed(stoi(c));
@@ -105,11 +76,10 @@ void PxlFile::readFromFile() {
             pxlVector.at(i)->setGreen(stoi(c));
             getline(ss,c,',');
             pxlVector.at(i)->setBlue(stoi(c));
-            // QColor::fromRgb(pxlVector.at(i)->getRed(), pxlVector.at(i)->getGreen(), pxlVector.at(i)->getBlue())
-            pal.setColor(QPalette::Window, QColor(0,0,0));
+            pxlVector.at(i)->setStyleSheet("");
+            pal.setColor(QPalette::Window, QColor(pxlVector.at(i)->getRed(), pxlVector.at(i)->getGreen(), pxlVector.at(i)->getBlue()));
             pxlVector.at(i)->setAutoFillBackground(true);
             pxlVector.at(i)->setPalette(pal);
-            pxlVector.at(i)->show();
         }
         inFile.close();
     }

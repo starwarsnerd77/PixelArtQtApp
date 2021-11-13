@@ -2,9 +2,6 @@
 
 Pixel::Pixel(QGroupBox *parent) : QGroupBox(parent), pxlRed(0), pxlGreen(0), pxlBlue(0), pxlSize(20){
 
-//    this->setPalette(pal);
-//    this->show();
-
 }
 
 Pixel::Pixel(QColorDialog* cp) {
@@ -66,7 +63,11 @@ void Pixel::mousePressEvent(QMouseEvent *event) {
     pal.setColor(QPalette::Window, colorPicker->currentColor());
     this->setAutoFillBackground(true);
     this->setPalette(pal);
-//    this->setStyleSheet("background-color:rgb(255,0,0)");
     this->show();
+}
+
+std::string Pixel::getRGB( ) const{
+	return std::to_string(getRed()) + "," + std::to_string(getGreen()) + "," + std::to_string(getBlue());
+
 }
 

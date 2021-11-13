@@ -28,6 +28,7 @@ public:
     QAction *actionSave_As;
     QAction *actionOpen;
     QAction *actionReset;
+    QAction *actionFill_from_current_color;
     QWidget *centralwidget;
     QStatusBar *statusbar;
     QMenuBar *menubar;
@@ -49,6 +50,8 @@ public:
         actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
         actionReset = new QAction(MainWindow);
         actionReset->setObjectName(QString::fromUtf8("actionReset"));
+        actionFill_from_current_color = new QAction(MainWindow);
+        actionFill_from_current_color->setObjectName(QString::fromUtf8("actionFill_from_current_color"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         MainWindow->setCentralWidget(centralwidget);
@@ -71,6 +74,7 @@ public:
         menuFile->addAction(actionOpen);
         menuHome->addAction(actioncolor2);
         menuHome->addAction(actionReset);
+        menuHome->addAction(actionFill_from_current_color);
 
         retranslateUi(MainWindow);
 
@@ -85,6 +89,7 @@ public:
         actionSave_As->setText(QCoreApplication::translate("MainWindow", "Save As", nullptr));
         actionOpen->setText(QCoreApplication::translate("MainWindow", "Open", nullptr));
         actionReset->setText(QCoreApplication::translate("MainWindow", "Reset", nullptr));
+        actionFill_from_current_color->setText(QCoreApplication::translate("MainWindow", "Fill from current color", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuHome->setTitle(QCoreApplication::translate("MainWindow", "Color", nullptr));
     } // retranslateUi

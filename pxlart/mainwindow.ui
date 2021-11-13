@@ -38,6 +38,7 @@
     </property>
     <addaction name="actioncolor2"/>
     <addaction name="actionReset"/>
+    <addaction name="actionFill_from_current_color"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHome"/>
@@ -65,6 +66,11 @@
   <action name="actionReset">
    <property name="text">
     <string>Reset</string>
+   </property>
+  </action>
+  <action name="actionFill_from_current_color">
+   <property name="text">
+    <string>Fill from current color</string>
    </property>
   </action>
  </widget>

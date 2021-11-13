@@ -121,3 +121,19 @@ void MainWindow::resetBoxes(){
     }
 
 }
+
+void MainWindow::on_actionFill_from_current_color_triggered()
+{
+    for(int i = 0;i < pxlVector.size();i++){
+        pxlVector.at(i)->setStyleSheet("");
+        QPalette pal = QPalette();
+        pal.setColor(QPalette::Window, colorPicker->currentColor());
+        pxlVector.at(i)->setRed(colorPicker->currentColor().red());
+        pxlVector.at(i)->setGreen(colorPicker->currentColor().green());
+        pxlVector.at(i)->setBlue(colorPicker->currentColor().blue());
+        pxlVector.at(i)->setAutoFillBackground(true);
+        pxlVector.at(i)->setPalette(pal);
+        pxlVector.at(i)->show();
+    }
+}
+

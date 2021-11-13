@@ -110,7 +110,7 @@ void MainWindow::resetBoxes(){
         pxlVector.at(i)->setStyleSheet("");
         QPalette pal = QPalette();
 
-        pal.setColor(QPalette::Window, colorPicker->customColor(0));
+        pal.setColor(QPalette::Window, QColor(255,255,255));
         pxlVector.at(i)->setRed(0);
         pxlVector.at(i)->setGreen(0);
         pxlVector.at(i)->setBlue(0);

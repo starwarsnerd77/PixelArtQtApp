@@ -25,6 +25,9 @@ public:
     ~MainWindow();
     void pushBack( Pixel* pixel);
     vector<Pixel*> getVector();
+    void drawBoxes(QColorDialog *colorPicker,int ROW, int COL );
+    void setLayout(QGridLayout *layout);
+    QGridLayout* getLayout();
 
 
 private slots:
@@ -34,6 +37,8 @@ private slots:
 
     void on_actionSave_triggered();
 
+    //void resizeEvent(QResizeEvent *event);
+
 
     void on_actionOpen_triggered();
 
@@ -41,6 +46,7 @@ private:
     Ui::MainWindow *ui;
     vector<Pixel*> pxlVector;
 //    QGridLayout* gridLayout;
+    QGridLayout *layout;
     int pxlSize;
     int curPxlR;
     int curPxlG;
@@ -48,6 +54,7 @@ private:
     int windowHeight;
     int windowWidth;
     QColorDialog* colorPicker;
+
 
 
 };

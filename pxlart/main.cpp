@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     QColorDialog* colorPicker = new QColorDialog(nullptr);
     colorPicker->setWindowFlags(Qt::Widget);
     colorPicker->setOptions(QColorDialog::NoButtons);
-    colorPicker->getColor(Qt::black);
+    colorPicker->setCurrentColor(Qt::black);
 
     MainWindow window(colorPicker);
     //w.show();

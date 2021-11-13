@@ -32,7 +32,8 @@ int main(int argc, char *argv[])
 
     QGridLayout *layout = new QGridLayout();
 
-
+    layout->setSpacing(0);
+    layout->setVerticalSpacing(0);
 
 
     widget->setLayout(layout);
@@ -41,8 +42,8 @@ int main(int argc, char *argv[])
 
     window.setCentralWidget(widget);
 
-    int ROW = 10;
-    int COL = 10;
+    int ROW = 25;
+    int COL = 25;
 
     Pixel* temp;
     for(int row = 0; row < ROW; row++){

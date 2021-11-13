@@ -2,7 +2,9 @@
 #include <QColorDialog>
 #include <QColor>
 #include "pixel.h"
-
+#include <QFile>
+#include <QFileDialog>
+#include "pxlfile.h"
 
 MainWindow::MainWindow(QColorDialog* cp, QWidget *parent)
     : QMainWindow(parent)
@@ -35,8 +37,8 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_actionSave_triggered()
 {
-    colorPicker->open();
-
+    PxlFile newFile = PxlFile();
+    newFile.writeToFile();
 
 }
 void MainWindow::pushBack(Pixel* pixel){

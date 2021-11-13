@@ -21,7 +21,7 @@
      <x>0</x>
      <y>0</y>
      <width>354</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -37,6 +37,7 @@
      <string>Color</string>
     </property>
     <addaction name="actioncolor2"/>
+    <addaction name="actionReset"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHome"/>
@@ -59,6 +60,11 @@
   <action name="actionOpen">
    <property name="text">
     <string>Open</string>
+   </property>
+  </action>
+  <action name="actionReset">
+   <property name="text">
+    <string>Reset</string>
    </property>
   </action>
  </widget>

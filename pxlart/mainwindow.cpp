@@ -97,3 +97,27 @@ void MainWindow::setLayout(QGridLayout *lay){
 QGridLayout* MainWindow::getLayout(){
     return layout;
 }
+
+void MainWindow::on_actionReset_triggered()
+{
+ resetBoxes();
+}
+
+void MainWindow::resetBoxes(){
+    for(int i = 0;i < pxlVector.size();i++){
+
+
+        pxlVector.at(i)->setStyleSheet("");
+        QPalette pal = QPalette();
+
+        pal.setColor(QPalette::Window, colorPicker->customColor(0));
+        pxlVector.at(i)->setRed(0);
+        pxlVector.at(i)->setGreen(0);
+        pxlVector.at(i)->setBlue(0);
+        pxlVector.at(i)->setAutoFillBackground(true);
+        pxlVector.at(i)->setPalette(pal);
+        pxlVector.at(i)->show();
+
+    }
+
+}

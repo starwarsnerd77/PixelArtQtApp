@@ -42,7 +42,7 @@ void PxlFile::setPxlSize(int size) {
     pxlSize = size;
 }
 
-void PxlFile::readFromFile() {
+void PxlFile::readFromFile(MainWindow* thing) {
     QString filters("Pixel files (*.pxl);;Music files (*.mp3);;Text files (*.txt);;All files (*.*)");
     QString defaultFilter("Pixel files (*.pxl)");
 
@@ -64,8 +64,8 @@ void PxlFile::readFromFile() {
         pxlSize = stoi(line);
         getline(inFile, line, '\n');
         numOfPxls = stoi(line);
-        cout << numOfPxls << endl;
         QPalette pal = QPalette();
+        thing->setFixedSize(fileWidth, fileHeight);
 
         for(int i = 0; i < numOfPxls; i++) {
             getline(inFile, line, ' ');
@@ -83,4 +83,5 @@ void PxlFile::readFromFile() {
         }
         inFile.close();
     }
+
 }

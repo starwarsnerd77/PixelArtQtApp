@@ -12,7 +12,6 @@ bool PxlFile::writeToFile() {
     QString filters("Pixel files (*.pxl);;Music files (*.mp3);;Text files (*.txt);;All files (*.*)");
     QString defaultFilter("Pixel files (*.pxl)");
 
-    /* Static method approach */
     QString file = QFileDialog::getSaveFileName(0, "Save file", QDir::currentPath(),
         filters, &defaultFilter);
 
@@ -23,10 +22,10 @@ bool PxlFile::writeToFile() {
     
     //Header portion of the file
     myfile << fileName + "," +  to_string(getFileHeight()) + "," + to_string(getFileWidth()) + "," + to_string(getPxlSize()) + "," + to_string(pxlVector.size()) + "\n";
+    //rgb data
     for(size_t i = 0; i < pxlVector.size(); i++){
         myfile << pxlVector.at(i)->getRGB() + " ";
 	}
-    myfile << "EOF" << " ";
 
 	myfile.close();
 	return true;

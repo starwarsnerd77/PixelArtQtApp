@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "pixel.h"
+#include "mainwindow.h"
 using namespace std;
 
 
@@ -21,7 +22,7 @@ public:
     void setFileWidth(int width);
     void setPxlSize(int size);
     bool writeToFile();
-    void readFromFile();
+    void readFromFile(MainWindow* window);
 
 private:
     string fileName;

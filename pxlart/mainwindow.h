@@ -34,8 +34,6 @@ public:
 private slots:
     void on_actioncolor2_triggered();
 
-    void on_pushButton_clicked();
-
     void on_actionSave_triggered();
 
     //void resizeEvent(QResizeEvent *event);

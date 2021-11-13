@@ -1,4 +1,5 @@
 #include "pixel.h"
+#include <iostream>
 
 Pixel::Pixel(QGroupBox *parent) : QGroupBox(parent), pxlRed(0), pxlGreen(0), pxlBlue(0), pxlSize(20){
 

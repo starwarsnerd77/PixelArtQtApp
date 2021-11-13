@@ -21,13 +21,14 @@ public:
     void setFileWidth(int width);
     void setPxlSize(int size);
     bool writeToFile();
-    vector<Pixel*> readFromFile();
+    void readFromFile();
 
 private:
     string fileName;
     int fileHeight;
     int fileWidth;
     int pxlSize;
+    int numOfPxls;
     vector<Pixel*> pxlVector;
 };
 

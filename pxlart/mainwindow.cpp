@@ -62,7 +62,7 @@ vector<Pixel*> MainWindow::getVector( ) {
 
 void MainWindow::on_actionOpen_triggered()
 {
-    PxlFile newFile = PxlFile();
+    PxlFile newFile = PxlFile(pxlVector);
     newFile.readFromFile();
 }
 
@@ -85,7 +85,7 @@ void MainWindow::drawBoxes(QColorDialog *colorPicker,int ROW, int COL ){
             temp->setStyleSheet("background-color: rgb(255,255,255)");
 
             layout->addWidget(temp, row, col);
-            this->pushBack(temp);
+            pxlVector.push_back(temp);
         }
 
     }

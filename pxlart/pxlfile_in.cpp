@@ -42,7 +42,7 @@ void PxlFile::setPxlSize(int size) {
     pxlSize = size;
 }
 
-vector<Pixel*> PxlFile::readFromFile() {
+void PxlFile::readFromFile() {
     QString filters("Music files (*.mp3);;Text files (*.txt);;All files (*.*)");
     QString defaultFilter("Pixel files (*.pxl)");
 
@@ -53,6 +53,7 @@ vector<Pixel*> PxlFile::readFromFile() {
 
     ifstream inFile(fileName);
     if(inFile.is_open()) {
+
         getline(inFile, line, ',');
         fileName = line;
         getline(inFile, line, ',');
@@ -61,12 +62,18 @@ vector<Pixel*> PxlFile::readFromFile() {
         fileWidth = stoi(line);
         getline(inFile, line, ',');
         pxlSize = stoi(line);
+        getline(inFile, line, '\n');
+        numOfPxls = stoi(line);
+        cout << numOfPxls << endl;
+        QPalette pal = QPalette();
 
-        Pixel* temp;
-        int counter;
+//        Pixel* temp;
+//        int counter;
 
-        while(line != "") {
-            getline(inFile, line, ' ');
+//        getline(inFile, line, ' ');
+//        while(line != "EOF") {
+
+//            cout << line << endl;
 
 //            temp = new Pixel();
 //            stringstream ss(line);
@@ -83,12 +90,27 @@ vector<Pixel*> PxlFile::readFromFile() {
 //            temp->setPalette(pal);
 //            temp->show();
 
-//            pxlVector.push_back(temp);
-            counter++;
+//            pxlVector->push_back(temp);
+//            getline(inFile, line, ' ');
+//            counter++;
+//        }
+
+        for(int i = 0; i < numOfPxls; i++) {
+            getline(inFile, line, ' ');
+//            cout << line << endl;
+            stringstream ss(line);
+            getline(ss,c,',');
+            pxlVector.at(i)->setRed(stoi(c));
+            getline(ss,c,',');
+            pxlVector.at(i)->setGreen(stoi(c));
+            getline(ss,c,',');
+            pxlVector.at(i)->setBlue(stoi(c));
+            // QColor::fromRgb(pxlVector.at(i)->getRed(), pxlVector.at(i)->getGreen(), pxlVector.at(i)->getBlue())
+            pal.setColor(QPalette::Window, QColor(0,0,0));
+            pxlVector.at(i)->setAutoFillBackground(true);
+            pxlVector.at(i)->setPalette(pal);
+            pxlVector.at(i)->show();
         }
-        std::cout << counter;
         inFile.close();
-        return pxlVector;
     }
-    return vector<Pixel*>();
 }

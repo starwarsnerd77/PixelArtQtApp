@@ -40,6 +40,8 @@ private slots:
     //void resizeEvent(QResizeEvent *event);
 
 
+    void on_actionOpen_triggered();
+
 private:
     Ui::MainWindow *ui;
     vector<Pixel*> pxlVector;

@@ -21,7 +21,7 @@ public:
     void setFileWidth(int width);
     void setPxlSize(int size);
     bool writeToFile();
-    vector<Pixel*> readFromFile(string filename);
+    vector<Pixel*> readFromFile();
 
 private:
     string fileName;

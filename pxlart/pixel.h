@@ -23,6 +23,9 @@ class Pixel : public QGroupBox {
 	    void setSize( const int& green );
 
         void mousePressEvent(QMouseEvent *event);
+
+
+        void mouseMoveEvent(QMouseEvent *event);
 	    
 
 	protected:

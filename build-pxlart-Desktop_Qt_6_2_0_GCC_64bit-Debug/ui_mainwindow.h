@@ -30,11 +30,16 @@ public:
     QAction *actionReset;
     QAction *actionFill_from_current_color;
     QAction *actionExport_as_PNG;
+    QAction *actionResize;
+    QAction *actionPaint;
+    QAction *actionPen;
     QWidget *centralwidget;
     QStatusBar *statusbar;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuHome;
+    QMenu *menuResize;
+    QMenu *menuEdit;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -55,6 +60,12 @@ public:
         actionFill_from_current_color->setObjectName(QString::fromUtf8("actionFill_from_current_color"));
         actionExport_as_PNG = new QAction(MainWindow);
         actionExport_as_PNG->setObjectName(QString::fromUtf8("actionExport_as_PNG"));
+        actionResize = new QAction(MainWindow);
+        actionResize->setObjectName(QString::fromUtf8("actionResize"));
+        actionPaint = new QAction(MainWindow);
+        actionPaint->setObjectName(QString::fromUtf8("actionPaint"));
+        actionPen = new QAction(MainWindow);
+        actionPen->setObjectName(QString::fromUtf8("actionPen"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         MainWindow->setCentralWidget(centralwidget);
@@ -68,10 +79,16 @@ public:
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuHome = new QMenu(menubar);
         menuHome->setObjectName(QString::fromUtf8("menuHome"));
+        menuResize = new QMenu(menubar);
+        menuResize->setObjectName(QString::fromUtf8("menuResize"));
+        menuEdit = new QMenu(menubar);
+        menuEdit->setObjectName(QString::fromUtf8("menuEdit"));
         MainWindow->setMenuBar(menubar);
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuHome->menuAction());
+        menubar->addAction(menuResize->menuAction());
+        menubar->addAction(menuEdit->menuAction());
         menuFile->addAction(actionSave);
         menuFile->addAction(actionSave_As);
         menuFile->addAction(actionOpen);
@@ -79,6 +96,9 @@ public:
         menuHome->addAction(actioncolor2);
         menuHome->addAction(actionReset);
         menuHome->addAction(actionFill_from_current_color);
+        menuResize->addAction(actionResize);
+        menuEdit->addAction(actionPaint);
+        menuEdit->addAction(actionPen);
 
         retranslateUi(MainWindow);
 
@@ -95,8 +115,13 @@ public:
         actionReset->setText(QCoreApplication::translate("MainWindow", "Reset", nullptr));
         actionFill_from_current_color->setText(QCoreApplication::translate("MainWindow", "Fill from current color", nullptr));
         actionExport_as_PNG->setText(QCoreApplication::translate("MainWindow", "Export as PNG", nullptr));
+        actionResize->setText(QCoreApplication::translate("MainWindow", "Resize", nullptr));
+        actionPaint->setText(QCoreApplication::translate("MainWindow", "Paint", nullptr));
+        actionPen->setText(QCoreApplication::translate("MainWindow", "Pen", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuHome->setTitle(QCoreApplication::translate("MainWindow", "Color", nullptr));
+        menuResize->setTitle(QCoreApplication::translate("MainWindow", "Resize", nullptr));
+        menuEdit->setTitle(QCoreApplication::translate("MainWindow", "Edit", nullptr));
     } // retranslateUi
 
 };

@@ -161,3 +161,19 @@ void MainWindow::on_actionResize_triggered()
     this->setFixedSize(text.toInt(), text.toInt());
     this->resetBoxes();
 }
+
+void MainWindow::on_actionPaint_triggered()
+{
+    for(unsigned int i = 0; i < pxlVector.size(); i++) {
+        pxlVector.at(i)->setMouseTracking(true);
+    }
+}
+
+
+void MainWindow::on_actionPen_triggered()
+{
+    for(unsigned int i = 0; i < pxlVector.size(); i++) {
+        pxlVector.at(i)->setMouseTracking(false);
+    }
+}
+

@@ -47,9 +47,17 @@
     </property>
     <addaction name="actionResize"/>
    </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionPaint"/>
+    <addaction name="actionPen"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHome"/>
    <addaction name="menuResize"/>
+   <addaction name="menuEdit"/>
   </widget>
   <action name="actioncolor2">
    <property name="text">
@@ -86,11 +94,21 @@
     <string>Export as PNG</string>
    </property>
   </action>
- <action name="actionResize">
+  <action name="actionResize">
    <property name="text">
     <string>Resize</string>
    </property>
- </action>
+  </action>
+  <action name="actionPaint">
+   <property name="text">
+    <string>Paint</string>
+   </property>
+  </action>
+  <action name="actionPen">
+   <property name="text">
+    <string>Pen</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

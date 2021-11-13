@@ -48,6 +48,10 @@ private slots:
     void on_actionExport_as_PNG_triggered();
     void on_actionResize_triggered();
 
+    void on_actionPaint_triggered();
+
+    void on_actionPen_triggered();
+
 private:
     Ui::MainWindow *ui;
     vector<Pixel*> pxlVector;
@@ -59,6 +63,7 @@ private:
     int curPxlB;
     int windowHeight;
     int windowWidth;
+
     QColorDialog* colorPicker;
 
 

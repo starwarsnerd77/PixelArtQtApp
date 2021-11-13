@@ -11,6 +11,7 @@ Pixel::Pixel(QColorDialog* cp) {
     pxlRed = 255;
     pxlGreen = 255;
     pxlBlue = 255;
+
 }
 
 int Pixel::getRed() const{
@@ -62,6 +63,7 @@ void Pixel::setSize( const int& size ){
 
 
 void Pixel::mousePressEvent(QMouseEvent *event) {
+    setMouseTracking(true);
     this->setStyleSheet("");
     QPalette pal = QPalette();
     pal.setColor(QPalette::Window, colorPicker->currentColor());
@@ -71,6 +73,17 @@ void Pixel::mousePressEvent(QMouseEvent *event) {
     this->setAutoFillBackground(true);
     this->setPalette(pal);
 //    this->show();
+}
+
+void Pixel::mouseMoveEvent(QMouseEvent *event){
+    this->setStyleSheet("");
+    QPalette pal = QPalette();
+    pal.setColor(QPalette::Window, colorPicker->currentColor());
+    this->setRed(colorPicker->currentColor().red());
+    this->setGreen(colorPicker->currentColor().green());
+    this->setBlue(colorPicker->currentColor().blue());
+    this->setAutoFillBackground(true);
+    this->setPalette(pal);
 }
 
 std::string Pixel::getRGB( ) const{

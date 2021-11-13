@@ -47,10 +47,17 @@ void MainWindow::on_actionSave_triggered()
 }
 void MainWindow::pushBack(Pixel* pixel){
  
-         pxlVector.push_back(pixel);
+    pxlVector.push_back(pixel);
  
 }
 
 vector<Pixel*> MainWindow::getVector( ) {
 	return pxlVector;
 }
+
+void MainWindow::on_actionOpen_triggered()
+{
+    PxlFile newFile = PxlFile();
+    newFile.readFromFile();
+}
+

@@ -1,6 +1,8 @@
 #include "pxlfile.h"
 #include <fstream>
 #include <sstream>
+#include <QFileDialog>
+#include <QColor>
 
 PxlFile::PxlFile()
 {
@@ -39,10 +41,16 @@ void PxlFile::setPxlSize(int size) {
     pxlSize = size;
 }
 
-vector<Pixel*> PxlFile::readFromFile(string filename) {
+vector<Pixel*> PxlFile::readFromFile() {
+    QString filters("Music files (*.mp3);;Text files (*.txt);;All files (*.*)");
+    QString defaultFilter("Pixel files (*.pxl)");
+
+    QString file = QFileDialog::getOpenFileName(0, "Save file", QDir::currentPath(), filters, &defaultFilter);
     string line;
     string c;
-    ifstream inFile(filename);
+    this->setFileName(file.toStdString());
+
+    ifstream inFile(fileName);
     if(inFile.is_open()) {
         getline(inFile, line, ',');
         fileName = line;
@@ -55,7 +63,9 @@ vector<Pixel*> PxlFile::readFromFile(string filename) {
 
         Pixel* temp;
 
-        while(getline(inFile, line, ' ')) {
+        while(line != "") {
+            getline(inFile, line, ' ');
+
             temp = new Pixel();
             stringstream ss(line);
 
@@ -65,6 +75,11 @@ vector<Pixel*> PxlFile::readFromFile(string filename) {
             temp->setGreen(stoi(c));
             getline(ss,c,',');
             temp->setBlue(stoi(c));
+
+            QPalette pal = QPalette();
+            pal.setColor(QPalette::Window, QColor::fromRgb(temp->getRed(), temp->getGreen(), temp->getBlue()));
+            temp->setPalette(pal);
+            temp->show();
 
             pxlVector.push_back(temp);
         }

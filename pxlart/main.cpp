@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 
     layout->setSpacing(0);
     layout->setVerticalSpacing(0);
+    layout->sizeConstraint();
 
     window.setLayout(layout);
 

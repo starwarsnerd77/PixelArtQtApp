@@ -4,8 +4,6 @@
 #include "pixel.h"
 #include <QResizeEvent>
 #include <iostream>
-
-
 #include <QFile>
 #include <QFileDialog>
 #include "pxlfile.h"

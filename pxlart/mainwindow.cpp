@@ -7,6 +7,7 @@
 #include <QFile>
 #include <QFileDialog>
 #include "pxlfile.h"
+#include "lodepng.h"
 
 
 MainWindow::MainWindow(QColorDialog* cp, QWidget *parent)
@@ -135,5 +136,39 @@ void MainWindow::on_actionFill_from_current_color_triggered()
         pxlVector.at(i)->setPalette(pal);
         pxlVector.at(i)->show();
     }
+}
+
+
+void MainWindow::on_actionExport_as_PNG_triggered()
+{
+    windowWidth = this->window()->size().width();
+    windowHeight = this->window()->size().height();
+//    unsigned width = 512, height = 512;
+    std::vector<unsigned char> image;
+    image.resize(windowWidth * windowHeight * 4);
+    int numOfPxlW = windowWidth / pxlSize;
+    int numOfPxlH = windowHeight / pxlSize;
+    int counterX = 0;
+    int counterY = 0;
+    for(unsigned int i = 0; i < pxlVector.size(); i++) {
+        for(int y = counterY*pxlSize; y < counterY*pxlSize+pxlSize; y++) {
+            for(int x = counterX*pxlSize; x < counterX*pxlSize+pxlSize; x++) {
+                image[4*windowWidth*y+4*x] = pxlVector.at(i)->getRed();
+                image[4*windowWidth*y+4*x+1] = pxlVector.at(i)->getGreen();
+                image[4*windowWidth*y+4*x+2] = pxlVector.at(i)->getBlue();
+                image[4*windowWidth*y+4*x+3] = 255;
+            }
+        }
+        counterX++;
+        if(counterX >= numOfPxlW) {
+            counterX = 0;
+            counterY++;
+        }
+    }
+
+//      encodeOneStep(filename, image, width, height);
+      unsigned error = lodepng::encode("test.png", image, windowWidth, windowHeight);
+
+      if(error) std::cout << "encoder error " << error << ": "<< lodepng_error_text(error) << std::endl;
 }
 

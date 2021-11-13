@@ -21,7 +21,7 @@
      <x>0</x>
      <y>0</y>
      <width>354</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -31,6 +31,7 @@
     <addaction name="actionSave"/>
     <addaction name="actionSave_As"/>
     <addaction name="actionOpen"/>
+    <addaction name="actionExport_as_PNG"/>
    </widget>
    <widget class="QMenu" name="menuHome">
     <property name="title">
@@ -71,6 +72,11 @@
   <action name="actionFill_from_current_color">
    <property name="text">
     <string>Fill from current color</string>
+   </property>
+  </action>
+  <action name="actionExport_as_PNG">
+   <property name="text">
+    <string>Export as PNG</string>
    </property>
   </action>
  </widget>

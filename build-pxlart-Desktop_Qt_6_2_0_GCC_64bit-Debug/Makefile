@@ -52,14 +52,16 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../pxlart/main.cpp \
+SOURCES       = ../pxlart/lodepng.cpp \
+		../pxlart/main.cpp \
 		../pxlart/mainwindow.cpp \
 		../pxlart/pixel.cpp \
 		../pxlart/pxlfile_in.cpp \
 		../pxlart/pxlfile_out.cpp qrc_qmake_qmake_qm_files.cpp \
 		moc_mainwindow.cpp \
 		moc_pixel.cpp
-OBJECTS       = main.o \
+OBJECTS       = lodepng.o \
+		main.o \
 		mainwindow.o \
 		pixel.o \
 		pxlfile_in.o \
@@ -204,9 +206,11 @@ DIST          = ../../../Qt/6.2.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/6.2.0/gcc_64/mkspecs/features/exceptions.prf \
 		../../../Qt/6.2.0/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt/6.2.0/gcc_64/mkspecs/features/lex.prf \
-		../pxlart/pxlart.pro ../pxlart/mainwindow.h \
+		../pxlart/pxlart.pro ../pxlart/lodepng.h \
+		../pxlart/mainwindow.h \
 		../pxlart/pixel.h \
-		../pxlart/pxlfile.h ../pxlart/main.cpp \
+		../pxlart/pxlfile.h ../pxlart/lodepng.cpp \
+		../pxlart/main.cpp \
 		../pxlart/mainwindow.cpp \
 		../pxlart/pixel.cpp \
 		../pxlart/pxlfile_in.cpp \
@@ -524,8 +528,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents ../pxlart/pxlart_en_US.ts $(DISTDIR)/
 	$(COPY_FILE) --parents qmake_qmake_qm_files.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/6.2.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../pxlart/mainwindow.h ../pxlart/pixel.h ../pxlart/pxlfile.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../pxlart/main.cpp ../pxlart/mainwindow.cpp ../pxlart/pixel.cpp ../pxlart/pxlfile_in.cpp ../pxlart/pxlfile_out.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../pxlart/lodepng.h ../pxlart/mainwindow.h ../pxlart/pixel.h ../pxlart/pxlfile.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../pxlart/lodepng.cpp ../pxlart/main.cpp ../pxlart/mainwindow.cpp ../pxlart/pixel.cpp ../pxlart/pxlfile_in.cpp ../pxlart/pxlfile_out.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../pxlart/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents ../pxlart/pxlart_en_US.ts $(DISTDIR)/
 
@@ -913,6 +917,9 @@ compiler_clean: compiler_lrelease_clean compiler_rcc_clean compiler_moc_predefs_
 
 ####### Compile
 
+lodepng.o: ../pxlart/lodepng.cpp ../pxlart/lodepng.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lodepng.o ../pxlart/lodepng.cpp
+
 main.o: ../pxlart/main.cpp ../pxlart/mainwindow.h \
 		../pxlart/pixel.h \
 		../../../Qt/6.2.0/gcc_64/include/QtWidgets/QGroupBox \
@@ -1289,7 +1296,19 @@ mainwindow.o: ../pxlart/mainwindow.cpp ../pxlart/mainwindow.h \
 		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qlayout.h \
 		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qlayoutitem.h \
 		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qboxlayout.h \
-		../../../Qt/6.2.0/gcc_64/include/QtGui/QColor
+		../../../Qt/6.2.0/gcc_64/include/QtGui/QColor \
+		../../../Qt/6.2.0/gcc_64/include/QtGui/QResizeEvent \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/QFile \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qfile.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.2.0/gcc_64/include/QtWidgets/QFileDialog \
+		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qfiledialog.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qdir.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qfileinfo.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qdatetime.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qcalendar.h \
+		../pxlart/pxlfile.h \
+		../pxlart/lodepng.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../pxlart/mainwindow.cpp
 
 pixel.o: ../pxlart/pixel.cpp ../pxlart/pixel.h \
@@ -1562,7 +1581,17 @@ pxlfile_in.o: ../pxlart/pxlfile_in.cpp ../pxlart/pxlfile.h \
 		../../../Qt/6.2.0/gcc_64/include/QtCore/qloggingcategory.h \
 		../../../Qt/6.2.0/gcc_64/include/QtWidgets/QColorDialog \
 		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qcolordialog.h \
-		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qdialog.h
+		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qdialog.h \
+		../../../Qt/6.2.0/gcc_64/include/QtWidgets/QFileDialog \
+		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qfiledialog.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qdir.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qfile.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qfileinfo.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qdatetime.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qcalendar.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qlocale.h \
+		../../../Qt/6.2.0/gcc_64/include/QtGui/QColor
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pxlfile_in.o ../pxlart/pxlfile_in.cpp
 
 pxlfile_out.o: ../pxlart/pxlfile_out.cpp ../pxlart/pxlfile.h \
@@ -1699,7 +1728,17 @@ pxlfile_out.o: ../pxlart/pxlfile_out.cpp ../pxlart/pxlfile.h \
 		../../../Qt/6.2.0/gcc_64/include/QtCore/qloggingcategory.h \
 		../../../Qt/6.2.0/gcc_64/include/QtWidgets/QColorDialog \
 		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qcolordialog.h \
-		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qdialog.h
+		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qdialog.h \
+		../../../Qt/6.2.0/gcc_64/include/QtWidgets/QFileDialog \
+		../../../Qt/6.2.0/gcc_64/include/QtWidgets/qfiledialog.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qdir.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qfile.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qfileinfo.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qdatetime.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qcalendar.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/qlocale.h \
+		../../../Qt/6.2.0/gcc_64/include/QtCore/QChar
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pxlfile_out.o ../pxlart/pxlfile_out.cpp
 
 qrc_qmake_qmake_qm_files.o: qrc_qmake_qmake_qm_files.cpp 

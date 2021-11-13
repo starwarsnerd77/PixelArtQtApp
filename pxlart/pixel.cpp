@@ -63,7 +63,6 @@ void Pixel::setSize( const int& size ){
 
 
 void Pixel::mousePressEvent(QMouseEvent *event) {
-    setMouseTracking(true);
     this->setStyleSheet("");
     QPalette pal = QPalette();
     pal.setColor(QPalette::Window, colorPicker->currentColor());

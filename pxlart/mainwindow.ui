@@ -41,8 +41,15 @@
     <addaction name="actionReset"/>
     <addaction name="actionFill_from_current_color"/>
    </widget>
+   <widget class="QMenu" name="menuResize">
+    <property name="title">
+     <string>Resize</string>
+    </property>
+    <addaction name="actionResize"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHome"/>
+   <addaction name="menuResize"/>
   </widget>
   <action name="actioncolor2">
    <property name="text">
@@ -79,6 +86,11 @@
     <string>Export as PNG</string>
    </property>
   </action>
+ <action name="actionResize">
+   <property name="text">
+    <string>Resize</string>
+   </property>
+ </action>
  </widget>
  <resources/>
  <connections/>

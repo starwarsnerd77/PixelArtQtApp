@@ -54,10 +54,10 @@ void Pixel::setBlue( const int& blue ){
 
 void Pixel::setSize( const int& size ){
 
-	if(size >= 0 && size <= 80){ //Does this need to be changed?
+
 		pxlSize = size;
-        this->resize(pxlSize, pxlSize);
-	}
+        this->resize(500, 500);
+
 }
 
 

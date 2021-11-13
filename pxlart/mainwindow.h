@@ -34,8 +34,6 @@ public:
 private slots:
     void on_actioncolor2_triggered();
 
-    void on_pushButton_clicked();
-
     void on_actionSave_triggered();
 
     //void resizeEvent(QResizeEvent *event);
@@ -48,6 +46,7 @@ private slots:
     void on_actionFill_from_current_color_triggered();
 
     void on_actionExport_as_PNG_triggered();
+    void on_actionResize_triggered();
 
 private:
     Ui::MainWindow *ui;

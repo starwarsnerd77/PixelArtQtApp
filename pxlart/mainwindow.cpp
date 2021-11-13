@@ -9,18 +9,18 @@
 #include "pxlfile.h"
 #include "lodepng.h"
 
+#include <QInputDialog>
+#include <QString>
 
 MainWindow::MainWindow(QColorDialog* cp, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->resize(800,600);
     this->setFixedSize(width(),height());
     colorPicker = cp;
     pxlSize = 20;
-    // Create Layout
-
-
 
 }
 
@@ -34,13 +34,6 @@ void MainWindow::on_actioncolor2_triggered() //This is the Choose Color selectio
     colorPicker->open();
 }
 
-
-void MainWindow::on_pushButton_clicked()
-{
-
-}
-
-
 void MainWindow::on_actionSave_triggered()
 {
     PxlFile newFile = PxlFile(pxlVector);
@@ -50,6 +43,7 @@ void MainWindow::on_actionSave_triggered()
     newFile.writeToFile();
 
 }
+
 void MainWindow::pushBack(Pixel* pixel){
  
     pxlVector.push_back(pixel);
@@ -60,20 +54,12 @@ vector<Pixel*> MainWindow::getVector( ) {
 	return pxlVector;
 }
 
-
 void MainWindow::on_actionOpen_triggered()
 {
     PxlFile newFile = PxlFile(pxlVector);
-    newFile.readFromFile();
-}
+    newFile.readFromFile(this);
 
-//void MainWindow::resizeEvent(QResizeEvent *event){
-//    (void) event;
-//    //std::cout << this->window()->size().height()/20 << " " << this->window()->size().width()/20 << std::endl;
-//    int ROW = this->window()->size().height()/20;
-//    int COL = this->window()->size().width()/20;
-//    drawBoxes(colorPicker,ROW, COL );
-//}
+}
 
 void MainWindow::drawBoxes(QColorDialog *colorPicker,int ROW, int COL ){
     Pixel* temp;
@@ -88,13 +74,13 @@ void MainWindow::drawBoxes(QColorDialog *colorPicker,int ROW, int COL ){
             layout->addWidget(temp, row, col);
             pxlVector.push_back(temp);
         }
-
     }
 }
 
 void MainWindow::setLayout(QGridLayout *lay){
  layout =lay;
 }
+
 QGridLayout* MainWindow::getLayout(){
     return layout;
 }
@@ -105,9 +91,7 @@ void MainWindow::on_actionReset_triggered()
 }
 
 void MainWindow::resetBoxes(){
-    for(int i = 0;i < pxlVector.size();i++){
-
-
+    for(uint i = 0;i < pxlVector.size();i++){
         pxlVector.at(i)->setStyleSheet("");
         QPalette pal = QPalette();
 
@@ -118,14 +102,12 @@ void MainWindow::resetBoxes(){
         pxlVector.at(i)->setAutoFillBackground(true);
         pxlVector.at(i)->setPalette(pal);
         pxlVector.at(i)->show();
-
     }
-
 }
 
 void MainWindow::on_actionFill_from_current_color_triggered()
 {
-    for(int i = 0;i < pxlVector.size();i++){
+    for(uint i = 0;i < pxlVector.size();i++){
         pxlVector.at(i)->setStyleSheet("");
         QPalette pal = QPalette();
         pal.setColor(QPalette::Window, colorPicker->currentColor());
@@ -172,3 +154,10 @@ void MainWindow::on_actionExport_as_PNG_triggered()
       if(error) std::cout << "encoder error " << error << ": "<< lodepng_error_text(error) << std::endl;
 }
 
+void MainWindow::on_actionResize_triggered()
+{
+    QString text = QInputDialog::getText(0, "Resize", "Size (Square):", QLineEdit::Normal,"");
+
+    this->setFixedSize(text.toInt(), text.toInt());
+    this->resetBoxes();
+}

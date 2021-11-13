@@ -104,7 +104,7 @@ void MainWindow::on_actionReset_triggered()
 }
 
 void MainWindow::resetBoxes(){
-    for(int i = 0;i < pxlVector.size();i++){
+    for(unsigned int i = 0;i < pxlVector.size();i++){
 
 
         pxlVector.at(i)->setStyleSheet("");
@@ -124,7 +124,7 @@ void MainWindow::resetBoxes(){
 
 void MainWindow::on_actionFill_from_current_color_triggered()
 {
-    for(int i = 0;i < pxlVector.size();i++){
+    for(unsigned int i = 0;i < pxlVector.size();i++){
         pxlVector.at(i)->setStyleSheet("");
         QPalette pal = QPalette();
         pal.setColor(QPalette::Window, colorPicker->currentColor());

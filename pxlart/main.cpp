@@ -36,6 +36,10 @@ int main(int argc, char *argv[])
     layout->setVerticalSpacing(0);
     layout->sizeConstraint();
 
+
+    QApplication::setStyle("windows");
+//    window.setStyle("fusion");
+
     window.setLayout(layout);
 
 

@@ -13,7 +13,7 @@
 #include <QColorDialog>
 #include <QToolBar>
 #include <QWidgetAction>
-#include "add_action.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     QColorDialog* colorPicker = new QColorDialog(nullptr);
     colorPicker->setWindowFlags(Qt::Widget);
     colorPicker->setOptions(QColorDialog::NoButtons);
+    colorPicker->getColor(Qt::black);
 
     MainWindow window(colorPicker);
     //w.show();

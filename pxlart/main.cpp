@@ -53,9 +53,11 @@ int main(int argc, char *argv[])
             temp->setStyleSheet("background-color: rgb(255,255,255)");
 
             layout->addWidget(temp, row, col);
+	    window.pushBack(temp);
         }
 
     }
+
 //    widget->setStyleSheet("margin-top:10px");
     layout->addWidget(colorPicker,0,COL+1,ROW,1);
 

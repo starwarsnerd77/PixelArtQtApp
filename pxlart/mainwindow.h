@@ -23,11 +23,17 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QColorDialog* cp, QWidget *parent = nullptr);
     ~MainWindow();
+    void pushBack( Pixel* pixel);
+    vector<Pixel*> getVector();
+
 
 private slots:
     void on_actioncolor2_triggered();
 
     void on_pushButton_clicked();
+
+    void on_actionSave_triggered();
+
 
 private:
     Ui::MainWindow *ui;
@@ -40,6 +46,7 @@ private:
     int windowHeight;
     int windowWidth;
     QColorDialog* colorPicker;
+
 
 };
 #endif // MAINWINDOW_H

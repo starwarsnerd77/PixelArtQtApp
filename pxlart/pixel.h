@@ -29,7 +29,7 @@ class Pixel : public QGroupBox {
 	    int pxlGreen;
 	    int pxlBlue;
 	    int pxlSize;
-        QColorDialog* colorPicker;
+	QColorDialog* colorPicker;
 
 	signals:
 

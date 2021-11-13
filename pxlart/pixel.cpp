@@ -69,3 +69,4 @@ void Pixel::mousePressEvent(QMouseEvent *event) {
 //    this->setStyleSheet("background-color:rgb(255,0,0)");
     this->show();
 }
+

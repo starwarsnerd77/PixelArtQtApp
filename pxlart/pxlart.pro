@@ -11,11 +11,14 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    pixel.cpp
+    pixel.cpp \
+    pxlfile_in.cpp \
+    pxlfile_out.cpp
 
 HEADERS += \
     mainwindow.h \
-    pixel.h
+    pixel.h \
+    pxlfile.h
 
 FORMS += \
     mainwindow.ui

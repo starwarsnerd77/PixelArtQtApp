@@ -23,6 +23,9 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionColor;
+    QAction *actionHerro;
+    QAction *actioncolor2;
     QWidget *centralwidget;
     QStatusBar *statusbar;
     QMenuBar *menubar;
@@ -34,6 +37,12 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(354, 600);
+        actionColor = new QAction(MainWindow);
+        actionColor->setObjectName(QString::fromUtf8("actionColor"));
+        actionHerro = new QAction(MainWindow);
+        actionHerro->setObjectName(QString::fromUtf8("actionHerro"));
+        actioncolor2 = new QAction(MainWindow);
+        actioncolor2->setObjectName(QString::fromUtf8("actioncolor2"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         MainWindow->setCentralWidget(centralwidget);
@@ -51,6 +60,9 @@ public:
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuHome->menuAction());
+        menuHome->addAction(actionColor);
+        menuHome->addAction(actionHerro);
+        menuHome->addAction(actioncolor2);
 
         retranslateUi(MainWindow);
 
@@ -60,6 +72,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        actionColor->setText(QCoreApplication::translate("MainWindow", "Color", nullptr));
+        actionHerro->setText(QCoreApplication::translate("MainWindow", "Herro", nullptr));
+        actioncolor2->setText(QCoreApplication::translate("MainWindow", "color2", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuHome->setTitle(QCoreApplication::translate("MainWindow", "Home", nullptr));
     } // retranslateUi

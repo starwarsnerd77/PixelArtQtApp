@@ -22,10 +22,11 @@ bool PxlFile::writeToFile() {
     myfile.open (fileName + ".pxl");
     
     //Header portion of the file
-	myfile << fileName + "," +  to_string(getFileHeight()) + "," + to_string(getFileWidth()) + "," + to_string(getPxlSize()) + "\n";
-	for(size_t i = 0; i < pxlVector.size(); i++){
-		myfile << pxlVector.at(i)->getRGB() + " ";
+    myfile << fileName + "," +  to_string(getFileHeight()) + "," + to_string(getFileWidth()) + "," + to_string(getPxlSize()) + "," + to_string(pxlVector.size()) + "\n";
+    for(size_t i = 0; i < pxlVector.size(); i++){
+        myfile << pxlVector.at(i)->getRGB() + " ";
 	}
+    myfile << "EOF" << " ";
 
 	myfile.close();
 	return true;

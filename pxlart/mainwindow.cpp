@@ -14,6 +14,7 @@ MainWindow::MainWindow(QColorDialog* cp, QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setFixedSize(width(),height());
     colorPicker = cp;
     pxlSize = 20;
     // Create Layout

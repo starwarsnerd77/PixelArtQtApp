@@ -28,6 +28,7 @@ public:
     void drawBoxes(QColorDialog *colorPicker,int ROW, int COL );
     void setLayout(QGridLayout *layout);
     QGridLayout* getLayout();
+    void resetBoxes();
 
 
 private slots:
@@ -41,6 +42,8 @@ private slots:
 
 
     void on_actionOpen_triggered();
+
+    void on_actionReset_triggered();
 
 private:
     Ui::MainWindow *ui;

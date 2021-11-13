@@ -7,13 +7,15 @@
 #include <QFile>
 #include <QFileDialog>
 #include "pxlfile.h"
-
+#include <QInputDialog>
+#include <QString>
 
 MainWindow::MainWindow(QColorDialog* cp, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->resize(800,600);
     this->setFixedSize(width(),height());
     colorPicker = cp;
     pxlSize = 20;
@@ -135,5 +137,17 @@ void MainWindow::on_actionFill_from_current_color_triggered()
         pxlVector.at(i)->setPalette(pal);
         pxlVector.at(i)->show();
     }
+}
+
+
+void MainWindow::on_actionResize_triggered()
+{
+    bool ok;
+       QString text = QInputDialog::getText(0, "Resize",
+                                            "Size (Square):", QLineEdit::Normal,
+                                            "", &ok);
+
+    this->setFixedSize(text.toInt(), text.toInt());
+
 }
 

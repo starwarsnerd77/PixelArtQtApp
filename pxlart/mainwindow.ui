@@ -21,7 +21,7 @@
      <x>0</x>
      <y>0</y>
      <width>354</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -40,8 +40,15 @@
     <addaction name="actionReset"/>
     <addaction name="actionFill_from_current_color"/>
    </widget>
+   <widget class="QMenu" name="menuResize">
+    <property name="title">
+     <string>Resize</string>
+    </property>
+    <addaction name="actionResize"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHome"/>
+   <addaction name="menuResize"/>
   </widget>
   <action name="actioncolor2">
    <property name="text">
@@ -71,6 +78,11 @@
   <action name="actionFill_from_current_color">
    <property name="text">
     <string>Fill from current color</string>
+   </property>
+  </action>
+  <action name="actionResize">
+   <property name="text">
+    <string>Resize</string>
    </property>
   </action>
  </widget>

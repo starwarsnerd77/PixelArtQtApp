@@ -15,6 +15,8 @@ Qt - a widget toolkit for creating graphical user interfaces as well as cross-pl
 
 Qt Creator - a cross-platform C++, JavaScript and QML integrated development environment which simplifies GUI application development.
 
+Link for Qt and Qt Creator: https://www.qt.io/download
+
 ## Build instructions
 Clone this repository using the command: `git clone https://github.com/starwarsnerd77/codecamp21.git`
 
